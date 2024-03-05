@@ -1,28 +1,23 @@
 package com.serenitydojo;
 
-public class Cat {
-    private String name;
+public class Cat extends Pet {
     private String favoriteFood;
     private int age;
+    public static final String CAT_NOISE = "Meow!";
 
     public static String usualFood(){
         return "Biscuits";
     }
 
     public Cat(String name, int age){
-        this.name = name;
-        this.age = age;
+        super(name, age);
         this.favoriteFood = Cat.usualFood();
     }
     public Cat(String name, String favoriteFood, int age) {
-        this.name = name;
+        super(name, age);
         this.favoriteFood = favoriteFood;
-        this.age = age;
     }
-    static String CAT_NOISE = "Meow!";
-    public String getName() {
-        return name;
-    }
+
     public void setFavoriteFood(String favoriteFood) {
         this.favoriteFood = favoriteFood;
     }
@@ -33,23 +28,24 @@ public class Cat {
         return age;
     }
 
-    public void makeNoise() {
-        System.out.println(CAT_NOISE);
+    @Override
+    public String makeNoise() {
+        return CAT_NOISE;
     }
 
     public void feed(String food) {
-        System.out.println(name + " eats some " + food);
+        System.out.println(getName() + " eats some " + food);
     }
 
     public void groom() {
         lickpaws();
         cleanFur();
-        System.out.println(name + " is clean!");
+        System.out.println(getName() + " is clean!");
     }
     private void lickpaws() {
-        System.out.println(name + " licks his paws");
+        System.out.println(getName() + " licks his paws");
     }
     private void cleanFur() {
-        System.out.println(name + " cleans his fur");
+        System.out.println(getName() + " cleans his fur");
     }
 }

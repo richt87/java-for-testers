@@ -7,6 +7,7 @@ public class Person {
     Gender gender;
     int age;
     String favoriteColor;
+    int points;
 
 
     public Person(String name, Gender gender, int age, String favoriteColor) {
@@ -14,6 +15,7 @@ public class Person {
             this.gender = gender;
             this.age = age;
             this.favoriteColor = favoriteColor;
+            this.points = 0;
     }
 
     public String getName() {
@@ -31,8 +33,17 @@ public class Person {
     public String getFavoriteColor() {
         return favoriteColor;
     }
+
+    public int getPoints() {
+        return points;
+    }
+
     @Override
     public String toString(){
         return name;
+    }
+
+    public void earnPoints(int earnedPoints) {
+        points = points + earnedPoints;
     }
 }
